@@ -1,5 +1,6 @@
-import edu.princeton.cs.algs4.WeightedQuickUnionUF;
+package FirstWeek;
 
+import edu.princeton.cs.algs4.WeightedQuickUnionUF;
 public class Percolation {
         private int gridSize;
         private WeightedQuickUnionUF unionFind;

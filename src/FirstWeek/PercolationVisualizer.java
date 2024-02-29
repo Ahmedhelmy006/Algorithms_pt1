@@ -1,3 +1,5 @@
+package FirstWeek;
+
 import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.StdDraw;
 
@@ -44,7 +46,7 @@ public class PercolationVisualizer {
     }
 
     public static void main(String[] args) {
-        In in = new In("input20.txt");      // input file
+        In in = new In("FirstWeek/input20.txt");      // input file
         int n = in.readInt();         // n-by-n percolation system
 
         // turn on animation mode
