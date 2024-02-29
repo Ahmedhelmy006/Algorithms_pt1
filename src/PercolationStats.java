@@ -2,14 +2,12 @@ import edu.princeton.cs.algs4.StdRandom;
 import edu.princeton.cs.algs4.StdStats;
 
 public class PercolationStats {
-    private int numberOfTrials;
     private int gridSize;
     private double fraction;
     private double[] results;
     private int counter = 0;
 
     public PercolationStats(int n, int trials) {
-        this.numberOfTrials = trials;
         this.gridSize = n;
         this.results = new double[trials];
         performMultipleSimulations(trials);
