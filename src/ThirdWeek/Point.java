@@ -32,7 +32,6 @@ public class Point implements Comparable<Point> {
 
         if(x == that.x && y == that.y) {
             return Double.NEGATIVE_INFINITY;
-
         }
         else if(denominator == 0.0){
             return Double.POSITIVE_INFINITY;
@@ -59,13 +58,10 @@ public class Point implements Comparable<Point> {
     }
 
     public Comparator<Point> slopeOrder() {
-        return new Comparator<Point>() {
-            @Override
-            public int compare(Point o1, Point o2) {
-                double s1 = slopeTo(o1);
-                double s2 = slopeTo(o2);
-                return Double.compare(s1, s2);
-            }
+        return (o1, o2) -> {
+            double s1 = slopeTo(o1);
+            double s2 = slopeTo(o2);
+            return Double.compare(s1, s2);
         };
     }
 
