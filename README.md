@@ -1,1 +1,1 @@
-This is a project where I store the submittedaAssignments for Princeston university course: Algorithms Part 1
+This is a project where I store the submitted Assignments for Princeston university course: Algorithms Part 1
