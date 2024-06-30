@@ -1,6 +1,7 @@
 package ThirdWeek;
 import java.util.Arrays;
 import java.util.ArrayList;
+import edu.princeton.cs.algs4.StdDraw;
 
 
 public class BruteCollinearPoints {
@@ -17,8 +18,8 @@ public class BruteCollinearPoints {
                 throw new NullPointerException("There is no Point");
             }
         }
-        int numOfPoints = points.length;
         Point[] newPoints = points.clone();
+        int numOfPoints = newPoints.length;
         Arrays.sort(newPoints);
 
         for(int i = 0; i < numOfPoints - 1; i++){
@@ -59,4 +60,6 @@ public class BruteCollinearPoints {
     public LineSegment[] segments() {
         return segments;
     }
+
 }
+
