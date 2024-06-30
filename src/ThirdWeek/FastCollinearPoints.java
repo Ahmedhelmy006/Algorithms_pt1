@@ -3,61 +3,42 @@ package ThirdWeek;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-
 public class FastCollinearPoints {
-    private final ArrayList<LineSegment> segmentsList;
+    private int numOfSegments;
+    private LineSegment[] segments;
+    private final ArrayList<LineSegment> segmentsList = new ArrayList<>();
 
     public FastCollinearPoints(Point[] points) {
-        if (points == null) throw new IllegalArgumentException("Argument is null");
-        for (Point p : points) {
-            if (p == null) throw new IllegalArgumentException("A point is null");
+        if(points == null){
+            throw new NullPointerException("There is no Point");
         }
-        checkForDuplicatePoints(points);
-
-        int n = points.length;
-        segmentsList = new ArrayList<>();
-
-        Point[] sortedPoints = points.clone();
-        Arrays.sort(sortedPoints);
-
-        for (int i = 0; i < n; i++) {
-            Point p = sortedPoints[i];
-            Point[] slopeOrderedPoints = sortedPoints.clone();
-            Arrays.sort(slopeOrderedPoints, p.slopeOrder());
-
-            int j = 1;
-            while (j < n) {
-                ArrayList<Point> collinear = new ArrayList<>();
-                final double SLOPE = p.slopeTo(slopeOrderedPoints[j]);
-                do {
-                    collinear.add(slopeOrderedPoints[j++]);
-                } while (j < n && p.slopeTo(slopeOrderedPoints[j]) == SLOPE);
-
-                if (collinear.size() >= 3 && p.compareTo(collinear.get(0)) < 0) {
-                    collinear.add(0, p);
-                    Point min = collinear.get(0);
-                    Point max = collinear.get(collinear.size() - 1);
-                    segmentsList.add(new LineSegment(min, max));
-                }
+        for(Point p: points){
+            if(p == null){
+                throw new NullPointerException("There is no Point");
             }
         }
-    }
 
-    private void checkForDuplicatePoints(Point[] points) {
-        Point[] copy = points.clone();
-        Arrays.sort(copy);
-        for (int i = 1; i < copy.length; i++) {
-            if (copy[i].compareTo(copy[i - 1]) == 0) {
-                throw new IllegalArgumentException("Duplicate points detected");
+        Point[] newPoints = points.clone();
+        Arrays.sort(newPoints);
+        int numOfPoints = newPoints.length;
+        for(int i = 0; i < numOfPoints - 1; i++){
+            if(newPoints[i].compareTo(newPoints[i + 1]) == 0){
+                throw new IllegalArgumentException("Duplicates are Found");
             }
         }
-    }
+        for(int i=0; i< numOfPoints; i++){
+            for(int j = i +1; j < numOfPoints; j++){
 
-    public int numberOfSegments() {
-        return segmentsList.size();
-    }
+            }
+        }
 
-    public LineSegment[] segments() {
-        return segmentsList.toArray(new LineSegment[0]);
+    }
+    public int numberOfSegments(){
+
+        return 0;
+    }
+    public LineSegment[] segments(){
+
+        return new LineSegment[0];
     }
 }
